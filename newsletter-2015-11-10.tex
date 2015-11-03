@@ -1,0 +1,195 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVII Issue \#{7}}
+\addtolength\footskip{-15px}
+\cfoot{"Hillary Clinton's emails backed up by... Dan Fury." 
+	- Julien Eid (jeid)}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{You too can submit news articles to Segfault!}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Computer Scientist of the Week}
+\item \hyperlink{secondnews}{History Facts with bmbowdish}
+\item \hyperlink{thirdnews}{E-Board Members of the Past}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{Potter Networking} Nov. 12, 7pm \\
+	Come learn about networking and stop being a stupid CS major
+	in which you think the network is always reliable. 
+\\
+\item \textbf{Nethack Binge} Nov. 13, 9pm \\
+	Nethack is a single-player roguelike video game originally 
+	released in 1987 with ASCII graphics. It is a CSH tradition, with
+	us hosting our own fork. Come play and see if you can
+	me Potter in the game :)
+\\
+\item \textbf{Insights} Nov. 14 - Nov. 15 \\
+	Perceptive RIT students will be staying on-floor to learn about
+	CSH and RIT at large. There will be plenty of activities planned
+	all weekend long that everyone should help with.
+\\  
+\item \textbf{Open House} Nov. 14, 11am \\
+	Be prepared to be waken up and help show off floor to all the 
+	perspective students.
+\\
+\item \textbf{Hipster Movie Night} Nov. 14, 10pm \\
+	
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+
+\captionof*{table}{Voting Results}
+\begin{tabular}{lcr}
+
+Vote & Cost & Result \\
+\midrule
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Computer Scientist of the Week: 
+	Leslie Lamport}{6pt}}
+	
+	Leslie Lamport, born in 1971, is a computer scientist who is known
+	for his major contributions to the field of distributed systems and
+	for being an initial contributor to Latex. He was awarded the Turning
+	Award in 2013 for his work in imposing clear, well-defined coherence
+	on  the seemingly chaotic behavior of distributed computing systems. 
+	Lamport currently works at Microsoft Research in California.\\
+	\\
+	Some of his most famous papers are:
+	\begin{itemize}
+	\item \textbf{Time, Clocks, and the Ordering of Events in a 
+	Distributed System:} A major issue in distributed computing is 
+	determining the order of in which events take place.
+	How do you know the order of database updates when they were 
+	submitted to different machine, potentially from different 
+	continents. This paper goes into the concept of logical clocks
+	to provide a global ordering of events in a system.
+	\\
+	\item \textbf{The Byzantine Generals' Problem:} This paper dealt
+	with the concept of fault tolerance in distributed systems. The
+	objective of Byzantine fault tolerance is to be able to defend 
+	against Byzantine failures, in which components of a system fail
+	with symptoms that prevent some components of the system from 
+	reaching agreement among themselves, where such agreement is needed
+	for the correct operation of the system. This paper then goes on
+	to show what is necessary for a system to keep working under these
+	conditions.
+	\\
+	\item \textbf{The Part-Time Parliament:}
+	This paper introduced the idea of the Paxos consistency protocol, 
+	which has formed the based for most major systems out there. While
+	many criticize this paper for being too abstract it still was
+	revolutionary for its time and is still considered a major development
+	in the field of distributed systems.
+	\end{itemize}
+	
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{History Facts with bmbowdish cont.}{6pt}} 
+
+\begin{enumerate}
+\item After the compressor on \textbf{drink} broke, Coca-Cola donated 
+	a new one
+\\
+\item \textbf{Segfault} was originally intended to be a virtual newspaper
+\\
+\item The \textbf{User Center}, founded in the 1983-1984 school year,
+	has moved around a few times in our history
+\end{enumerate}
+
+\hypertarget{thirdnews}{\heading{E-Board Members of the Past}{6pt}} 
+
+\centerline{The old E-Board members that are still kinda around} 
+\centerline{}
+\centerline{\textbf{Travis Whitaker}: R\&D Director from 2014-2015} 
+\centerline{\textbf{Jacqueline McGraw}: Social Director from 2014-2015}
+\centerline{\textbf{Derek Gonyeo}: Financial Director of 2014-2015} 
+\centerline{\textbf{Reed Swiernik}: Social Director from Spring of 2014} 
+\centerline{\textbf{Christian Beekman}: Social Director from Spring of 2014} 
+\centerline{\textbf{Matt Gambogi}: History Director from Fall of 2014}
+\centerline{\textbf{Michael Lynch}: House Improvements Director of
+ 2014-2015}
+\centerline{\textbf{Stephen Demos}: House Improvements Director of 
+2013-2014}
+\centerline{\textbf{Julien Eid}: OpComm Director of Spring 2013 - Spring 2014}
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 
