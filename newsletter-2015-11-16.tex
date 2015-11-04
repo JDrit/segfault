@@ -1,0 +1,183 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+\usepackage[procnames]{listings}
+\usepackage{color}
+\usepackage{makecell}
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+ 
+\lstset{language=Python, 
+        basicstyle=\ttfamily\small, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        showstringspaces=false,
+        procnamekeys={def,class}}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVII Issue \#{8}}
+\addtolength\footskip{-15px}
+\cfoot{TODO}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Why do today if you can do tomorrow?}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.30\linewidth} % Mini page taking up 30% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{What is Tail Recursion?}
+\item \hyperlink{secondnews}{Second News Point}
+\item \hyperlink{thirdnews}{Third News Point}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{Potter Seminar} Nov. 19, 7pm \\
+	Because you can always learn more about networking
+\\
+\item \textbf{Mini Maker Fair} Nov. 21 \\
+	Come support your fellow CSHers at the maker fair!
+\\
+\item \textbf{Hipster Movie Night} Nov. 21 10pm \\
+	
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+
+\captionof*{table}{Voting Results}
+\begin{tabular}{lcr}
+
+Vote & Cost & Result \\
+\midrule
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.66\linewidth} % Mini page taking up 66% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{What is Tail Recursion?}{6pt}}
+	A function call is said to be tail recursive if there is nothing to do after the function returns except return its value. Tail recursion is important because it can be implemented more efficiently than general recursion. The compiler will normally just us a \textbf{goto} under the hood. When we make a normal recursive call, we have to push the return address onto the call stack then jump to the called function. This means that we need a call stack whose size is linear in the depth of the recursive calls. When we use tail recursion we know that as soon as we return from the recursive call we are going to immediately return as well, so we can skip the entire chain of recursive functions returning and return straight to the original caller. That means we don't need a call stack at all for all of the	recursive calls, and can implement the final call as a simple jump, which saves us space. \\
+\\
+Below is the same algorithm written using general recursion (left) and using tail recursion (right). While both of these algorithms produce the same result, they have different call stacks. \\
+
+\begin{tabular}{ l c r }
+\begin{lstlisting}
+def recsum(x):
+  if x == 1:
+    return x
+  else:
+    return x + recsum(x-1)
+\end{lstlisting}
+&
+\begin{lstlisting}
+def tailrecsum(x, accum=0):
+  if x == 0:
+    return accum
+  else:
+    return tailrecsum(x-1, accum+x)
+\end{lstlisting}
+\\
+\\
+\\
+\makecell{
+recsum(5) \\
+5 + recsum(4) \\
+5 + (4 + recsum(3)) \\
+5 + (4 + (3 + recsum(2))) \\
+5 + (4 + (3 + (2 + recsum(1)))) \\
+5 + (4 + (3 + (2 + 1))) \\
+15 \\}
+
+&
+\makecell{
+tailrecsum(5, 0) \\
+tailrecsum(4, 5) \\
+tailrecsum(3, 9) \\
+tailrecsum(2, 12) \\
+tailrecsum(1, 14) \\
+tailrecsum(0, 15) \\
+15 \\}
+\end{tabular}
+
+The call stack on the left requires you to go up the call stack to finish
+adding all the numbers together while the call stack on the right just
+needs to return the final solution.
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{Second News Point}{6pt}} 
+
+\hypertarget{thirdnews}{\heading{Third News Point}{6pt}} 
+
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 
