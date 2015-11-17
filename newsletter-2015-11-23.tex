@@ -20,6 +20,18 @@
 \usepackage{color}
 \usepackage{makecell}
 
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+ 
+\lstset{language=Python, 
+        basicstyle=\ttfamily\small, 
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        showstringspaces=false,
+        procnamekeys={def,class}}
+
 \input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
 
 \begin{document}
@@ -34,7 +46,8 @@
 \rhead{\today}
 \lhead{Volume XLVII Issue \#{9}}
 \addtolength\footskip{-15px}
-\cfoot{TODO}
+\cfoot{"Henry your door is always open, just like your asshole" - 
+Spencer (spencerk)}
 
 %----------------------------------------------------------------------------------------
 %	HEADER IMAGE
@@ -59,7 +72,7 @@
 %	SIDEBAR - FIRST PAGE
 %----------------------------------------------------------------------------------------
 
-\vspace{-0.5cm}\begin{minipage}[t]{.26\linewidth} % Mini page taking up 30% of the actual page
+\vspace{-0.5cm}\begin{minipage}[t]{.30\linewidth} % Mini page taking up 30% of the actual page
 \begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
 
 %-----------------------------------------------------------
@@ -74,22 +87,47 @@
 %-----------------------------------------------------------
 
 \textbf{Notable Upcoming Events:}
-\begin{enumerate}[leftmargin=0.2cm]
-\item TODO
+Nothing, go home and spend time with your family, or try to avoid them.
+I don't know your family situation.
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+\textbf{Scala} \\
+One of the best languages out there right now is called Scala. It is able to
+effectively combine object-oriented design with functional programming. Scala
+runs on top of the JVM which gives you 100\% binary compatibility with a wide
+array of library support and resources.  Look forward to the next major release
+2.12!\\
+
+\textbf{Python 3.5} \\
+Python 3.5, which was release in the middle of September, has several cool new
+features. 
+
+\begin{enumerate}[leftmargin=0cm,itemindent=.5cm]
+\item \textbf{Coroutines with async and await syntax (PEP 492)} \\
+This greatly improves support for asynchronous programming by adding 
+coroutines into the language 
+\\
+\item \textbf{type hints (PEP 484)} \\
+While type hints have been in the language since 3.0, however the semantics of
+annotations has been left undefined. This introduces a provisional module to 
+provide these standard definitions and tools, along with some conventions for
+situations where annotations are not available.
+
+\begin{lstlisting}
+def msg(name: str) -> str:
+    return 'hi ' + name
+\end{lstlisting}
+
+\item \textbf{matrix multiplication (PEP 465)} \\
+While this might not be a major feature, it still seems like an interesting
+one. PEP 465 adds the infix operator `@` for matrix multiplication. 
+This was added to help improve Python for data scientists. 
 \end{enumerate}
 
 %-----------------------------------------------------------
 
 
 %-----------------------------------------------------------
-
-\captionof*{table}{Voting Results}
-\begin{tabular}{lcr}
-
-Vote & Cost & Result \\
-\midrule
-\bottomrule
-\end{tabular}
 
 %-----------------------------------------------------------
 
@@ -100,7 +138,7 @@ Vote & Cost & Result \\
 %	MAIN BODY - FIRST PAGE
 %----------------------------------------------------------------------------------------
 %
-\begin{minipage}[t]{.70\linewidth} % Mini page taking up 66% of the actual page
+\begin{minipage}[t]{.66\linewidth} % Mini page taking up 66% of the actual page
 \vspace{-0.4cm}
 \hypertarget{firstnews}{\heading{Containers with Dgonyeo}{6pt}}
 	
