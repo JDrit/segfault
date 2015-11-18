@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVII Issue \#11}
+\addtolength\footskip{-15px}
+\cfoot{"Just do a fourth trimester abortion" - JD (jd)}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Have fun, don't die}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.32\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Big-O Notation}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\textbf{<TITLE>} \\
+<SHORT SECTION>
+\\
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.64\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Big-O Notation}{6pt}}
+
+Big O is the way of measuring the efficiency of an algorithm and how well it 
+scales based on the size of the dataset. Imagine you have a list of 10 objects,
+and you want to sort them in order. There’s a whole bunch of algorithms you can 
+use to make that happen, but not all algorithms are created equal. Some are 
+quicker than others, but more importantly is that the speed of an algorithm can
+vary depending on how many items it is dealing with. \\
+\\
+Big O is represented using something like O(n). The O simply denotes that we are 
+talking about big O and you can ignore it. The n is the thing the complexity is
+in relation to; for programming interview questions this is almost always the 
+size of a collection. The complexity will increase or decrease in accordance 
+with the size of the data store. Below is a list of the Big O complexities 
+in order of how well they scale relative to the dataset.
+
+\textbf{O(1) / Constant Complexity:} 
+This means that it will always take the same amount of time, no matter the size
+of the input. 1 item takes 1 second, 10 items takes 1 second, 100 items 
+takes 1 second. It always takes the same amount of time. This is seen in 
+retrieval from arrays or dictionaries, peeking at a queue, or getting the size 
+of an array.
+
+\textbf{O(log n) / Logarithmic Complexity:}
+Not as good as constant, but still pretty good. The time taken increases with 
+the size of the data set, but not proportionately so. This means the algorithm
+takes longer per item on smaller datasets relative to larger ones. 1 item 
+takes 1 second, 10 items takes 2 seconds, 100 items takes 3 seconds. If your
+dataset has 10 items, each item causes 0.2 seconds latency. If your dataset has
+100, it only takes 0.03 seconds extra per item. This makes log n algorithms 
+very scalable. This is seen in something like a binary tree search since it cuts
+half of the items to search at every step ($log_2$).
+
+\textbf{O(n) / Linear Complexity:}
+The larger the data set, the time taken grows proportionately. 1 item takes 1
+second, 10 items takes 10 seconds, 100 items takes 100 seconds. This is seen
+in algorithms like searching a linked list or summing up all the values in an 
+array. These algorithms are O(n) since every item needs to be checked. 
+This will not scale if your data becomes too large.
+
+\textbf{O(n log n):}
+A nice combination of the previous two. Normally there are 2 parts to the sort,
+the first loop is O(n), the second is O(log n), which combines to form O(n log n).
+This complexity is common in most major searching algorithms, like quicksort and
+mergesort.
+
+\textbf{O($n^2$) / Quadratic Complexity:}
+Things are getting extra slow. 1 item takes 1 second, 10 items takes 100, 
+100 items takes 10000. An example of this is bubble sort or generating every 
+combination of your input data. Always try to avoid this.
+
+\textbf{O($2^n$) / Exponential Growth:}
+The algorithm takes twice as long for every new element added. 1 item takes 1
+second, 10 items takes 1024 seconds, 100 items takes 
+1267650600228229401496703205376 seconds. HOLY FUCK AVOID THIS.
+
+\textbf{Some hints on how to figure out Big O for an algorithm:}
+\begin{enumerate}
+\item Does it have to go through the entire list? There will be an O(n) in 
+there somewhere.
+\item Does the algorithm's processing time increase at a slower rate than 
+the size of the data set? Then there is probably a O(log n) in there.
+\item Are there nested loops?  You are probably looking at O($n^2$) or O($n^3$).
+\item Is access time constant irrelevant of the size of the dataset? O(1)
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 

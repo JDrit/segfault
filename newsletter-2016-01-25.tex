@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The default font size is 10pt; 11pt and 
+%12pt are alternatives
+\documentclass[9pt]{extarticle} 
+
+% Include the document which specifies all packages and structural 
+% customizations for this template
+\input{structure.tex} 
+\usepackage{censor}
+
+\usepackage{background}
+\backgroundsetup{%
+  scale=3,       %% change accordingly
+  angle=0,       %% change accordingly
+  opacity=.10,    %% change accordingly
+  color = white,  %% change accordingly
+  contents={\includegraphics[width=5cm]{illumnisymbol.png}};}
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVIII Issue \#1}
+\addtolength\footskip{-15px}
+\cfoot{<QUOTE>}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{illumnifault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Move on, there is nothing to see here}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{The New CSH Order}
+\item \hyperlink{secondnews}{Uncovering the Secrets of the Illuminati}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\textbf{<TITLE>} \\
+<SHORT SECTION>
+\\
+
+%-----------------------------------------------------------
+
+\captionof*{table}{Voting Results}
+\begin{tabular}{lcr}
+
+Vote & Cost & Result \\
+\midrule
+<NAME> & \$<MONEY> & <STATUS> \\
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{The New CSH Order}{6pt}}
+\begin{quote}
+\centering
+\textbf{\textit{author: \censor{adinardi}}}
+\end{quote}
+
+No one can ever know the real, true plans of the Illuminati. They are veiled 
+in secrecy and control all aspects of Computer Science House. The more you 
+think you know, the less you really know. What you know is what they want 
+you to know and is merely a diversion from the truth. 
+
+You may believe that the Illuminati have no power over you, but the truth is 
+that every day you are being manipulated. Your "choices" to try and stop 
+their underlying control are choices which they have caused to happen, because
+they know what you will do in reaction to their manipulations. No matter what
+you attempt, you will always be following perfectly into their plans for a 
+New CSH Order. 
+
+The committee organizes a ton of social events. Your belief that the purpose of
+these events is for fun is misguided. Your enjoyment of these events is simply
+a way to keep the masses under control and appeased. Take for example the weekly
+movie nights. These files give subliminal messages which will be carried out by
+CSH members at a time in the future which is choosen by the Illuminati. You
+do not know what these instructions are and you will not know when you are
+carrying them out. To you, these actions appear to be your own, made completely
+consciously. the reality is that you know nothing. 
+
+The harder you try to know more, the further from the true you are. We all have a 
+place in the New CSH Order. No one knows their place, but you have no choice 
+but to play along. All along you have been misguided to target your protests 
+against us. But consider, would the Illuminati allow the identity of those 
+truly controlling everything become know to anyone? You are simply ignorant of
+the fact that you really know nothing.
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{Uncovering the Secrets of the 
+Illuminati: Exposing Their Identities and Practices}{6pt}} 
+\begin{quote}
+\centering
+\textbf{\textit{author: John Doe }}
+\end{quote}
+
+\centering[REDACTED DUE TO SECURITY REASONS]
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 
