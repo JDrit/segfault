@@ -46,7 +46,7 @@
 \rhead{\today}
 \lhead{Volume XLVII Issue \#11}
 \addtolength\footskip{-15px}
-\cfoot{"Marc I just want to say I like dick in my mouth twice as much as you do" - Drew Gottlieb (dag10)}
+\cfoot{"I do not believe in straight people." - Marc Billow (mbillow)}
 
 %----------------------------------------------------------------------------------------
 %	HEADER IMAGE
@@ -78,17 +78,40 @@
 
 \hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
 \begin{itemize}
-\item \hyperlink{firstnews}{Containers with Dgonyeo}
+\item \hyperlink{firstnews}{Secret Santa Round Up}
+\item \hyperlink{secondnews}{Containers with Dgonyeo}
 \end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+Evaluations elections was this last week and this is your reminder to let
+you know that you need to submit your ballot before the election period
+closes. Think carefully about your vote as this will affect CSH greatly,
+no pressure.
 
 \centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
 
 %-----------------------------------------------------------
 
 \textbf{Notable Upcoming Events:} \\
-\item \textbf{<EVENT NAME>} <DATE> \\
-	<DESC>
+
+\item \textbf{FINALS}: ALL WEEK LONG \\
+	You know you should have started studying yesterday
+
+\item \textbf{Open Source Swift}: Dec. 15, 6:30pm \\
 	
+\item \textbf{Jersey Christmas}: Dec. 15 9:30pm \\
+	Come learn what Christmas is like in Jersey with Jackie and
+	Schuyler!
+
+\item \textbf{Graphic Seminar}: Dec 16, 7pm \\
+	Gerard is going to be on-floor sometime this week and is going to be
+	giving a seminar to all of you. Come learn some cool stuff and see
+	some Gerard shit.
+	
+\item \textbf{Winter Break}: Dec 19 - Jan 24 \\
+	Get out of this hell hole we call RIT and go visit family and loved 
+	ones.
 
 %-----------------------------------------------------------
 
@@ -106,16 +129,44 @@
 %
 \begin{minipage}[t]{.66\linewidth} % Mini page taking up 66% of the actual page
 \vspace{-0.4cm}
-\hypertarget{firstnews}{\heading{Containers 101}{6pt}}
+
+%-----------------------------------------------------------
+
+\hypertarget{firstnews}{\heading{Secret Santa Round Up}{6pt}} 
+
+Last night was the Computer Science House Holiday Dinner and Secret Santa. A big
+thanks to Colin O’Neill for running such entertaining events! Here are some of 
+Segfault’s favorite gifts from last night. 
+
+\begin{enumerate}
+\item \textbf{Marc Billow} received a beautifully written letter from slack-will
+telling him that he knows about Marc's secret lust for JD. The letter provided 
+tools to seduce Paul Ugolini instead, kinky. 
+
+\item \textbf{Travis Whitaker} and \textbf{Luke Shadler} both received the same 
+poster of Travis crying while Monica Rizzo and Luke both stand together in a photo
+the shape of a heart. 
+
+\item A framed photo of \textbf{Nick Mosher} and \textbf{George Morgan} holding
+themselves passionately in field of flowers, notice the hand action going on there.
+
+\item \textbf{Sheckle} received more of a mission than a present. She removed 
+bottles of ketchup from 5 different boxes with the goal of not covering herself
+in ketchup.  
+
+\item \textbf{Brandon Chu} got a care package from home, reminding him of what he
+is missing. Oh man that MSG looks appetizing!
+
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{Containers 101}{6pt}}
 \begin{quote}
 \centering
 \textbf{\textit{author: Derek Gonyeo (dgonyeo)}}
 \end{quote}
 	
-Containers are a really cool, useful technology that are good for solving a lot
-of common problems. One problem though is that they have an absurd amount of 
-hype behind them, and a lot of people don't fully understand what they are. 
-
 In order for me to describe what containers are, let's first establish what
 virtual machines are, and why they exist. Before any of this container or VM
 stuff came about, you would just run applications straight on your server. 
@@ -149,29 +200,10 @@ web servers with different versions of PHP running on the same machine. Do we
 really need to emulate network cards, CPUs, hard drives, and more for each web
 server? What if we could only lie about the versions of PHP available on the
 system, and let the different web servers use the real block devices and memory
-space on the host?
+space on the host? Containers are, in a sense, exactly that. Containers are kinda
+like VMs in that they're also built with the goal of lying to parts of your computer,
+but they aim to be easier to use/setup by lying about significantly less.
 
-Containers are, in a sense, exactly that. Utilizing some features in the Linux
-kernel, we can just lie to a process about the following things:
-\begin{itemize}
-\item Where `/` is in the filesystem. This means that when a process tries to load
-  in `/usr/lib/php5`, what it really gets is
-  `/var/lib/rkt/stuff/rootfs/usr/lib/php5`.
-\item What other processes are running on the system. This means that the two web
-  servers won't be able to see - and therefore interfere - with each other (or
-  much else for that matter).
-\item The network stack. It can be useful to (optionally) hand each web server a
-  separate network stack, that is separate from the host's. This means that
-  both web servers can bind to port 80, and when the host gets a connection to
-  port 80 it'll just forward the connection to one of the two web servers,
-  depending on what application the user is trying to access.
-\end{itemize}
-
-So there you have it. Containers are kinda like VMs in that they're also built
-with the goal of lying to parts of your computer, but they aim to be easier to
-use/setup by lying about significantly less.
-
-%-----------------------------------------------------------
 
 \end{minipage} % End the main body - first page mini page
 
