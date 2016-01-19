@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVIII Issue \#5}
+\addtolength\footskip{-15px}
+\cfoot{<QUOTE>}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{"Beware of bugs in the above code; I have only proved it correct, not tried it." - Donald E. Knuth}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Data Propagation in Distributed Systems}
+\item \hyperlink{secondnews}{Engineering Translator}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\textbf{Joke of the Week} \\
+Q: What do computer and air conditioners have in common? \\
+A: They both become useless when you open windows.
+\\
+
+%-----------------------------------------------------------
+
+\captionof*{table}{Voting Results}
+\begin{tabular}{lcr}
+
+Vote & Cost & Result \\
+\midrule
+<NAME> & \$<MONEY> & <STATUS> \\
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Data Propagation in Distributed Systems}{6pt}}
+
+An important design issue is how to actually propagate writes to a distributed data store. This can affect the overall design of the system and it is important to know which option to use to achieve desired result. There are basically three overarching types, which we will discuss here.
+
+\textbf{Propagate only notifications of writes} \\
+This is what invalidation protocols try to achieve. When item x is updated, all other copies of item x are informed that an update has taken place and that the data the local copy has is no longer valid. When a new operation comes in for the invalidated item x, the local copy needs to be updated first, depending on the specific consistency model that is being supported. This method has an advantage that very little network bandwidth is used to send out updates. Such protocol are useful in situations where there are many updates in comparison to read operations. An example of this are content delivery network in which messages are sent out to globally distributed replicas to invalidate the local data.
+\\
+\textbf{Transfer updates between copies} \\
+Transferring the modified data itself among replicas is an alternative that is useful in situations when the read-to-write ration is relatively high. In that case, the probability that an update will be effective in the sense that the modified data will be read before the next update takes place is high.  
+\\
+\textbf{Propagate the update operations} \\
+Instead of propagating the actual modified data, it is possible to propagate the update parameters. This is done by logging the operations and then replicating the log in order to save bandwidth. Replicated state machines are an example of this. Depending on the data, this can save network bandwidth. In addition, one can aggregate log entries into a single message to save on message overhead. The downside is that the same computation now has to be preformed on each replica, increasing complexity.    
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{Engineering Translator}{6pt}} 
+
+Sometimes it is hard to understand what engineers mean when they say things. We have provided you with a quick translation guide for the most common engineers sayings for you to help you better understand them.
+
+\textbf{What is said:} A number of different approaches are being tried \\
+\textbf{What it means:} We don't know where we're going, but its working 
+
+\textbf{What is said:} Developed after years of intensive research \\
+\textbf{What it means:}	It was discovered by accident
+
+\textbf{What is said:} Modifications are underway to correct certain minor difficulties \\
+\textbf{What it means:} We threw the whole thing out and are starting from scratch
+
+\textbf{What is said:} Preliminary operational tests were inconclusive \\
+\textbf{What it means:} The darn thing blew up when we threw the switch
+
+\textbf{What is said:} Test results were extremely gratifying \\
+\textbf{What it means:} It works and, boy, are we surprised
+
+\textbf{What is said:} The entire concept is unworkable \\
+\textbf{What it means:} The only guy who understood the thing just quit
+
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 
