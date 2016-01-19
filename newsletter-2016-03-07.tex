@@ -63,9 +63,7 @@
 
 \hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
 \begin{itemize}
-\item \hyperlink{firstnews}{Software Engineer Translator}
-\item \hyperlink{secondnews}{Second Section}
-\item \hyperlink{thirdnews}{Third Section}
+\item \hyperlink{firstnews}{What is Apache Cassandra?}
 \end{itemize}
 
 \centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
@@ -111,46 +109,26 @@ Vote & Cost & Result \\
 %
 \begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
 \vspace{-0.4cm}
-\hypertarget{firstnews}{\heading{Software Engineer Translator}{6pt}}
+\hypertarget{firstnews}{\heading{What is Apache Cassandra?}{6pt}} 
 
-\textbf{What is said:} This is a horrible hack \\
-\textbf{What it means:} This is a something that I did not write
+Apache Cassandra is a distributed data store, created at Facebook and then open sourced in 2008. It builds off of the two famous papers, \textit{Bigtable: A distributed storage system for structured data} by Google (2006) and \textit{Dynamo: amazon's highly available keyvalue store} by Amazon (2007). It took Dynamo's partitioning structure and gossip replication and Bigtable's log-structure column family data model.
 
-\textbf{What is said:} It's broken \\
-\textbf{What it means:} There are bugs in your code
+\begin{wrapfigure}{r}{4.5cm}
+\includegraphics[width=\linewidth]{imgs/dynamo.png} 
+\caption{Dynamo Architecture \& Key Lookup}\label{fig:1}
+\end{wrapfigure} 
 
-\textbf{What is said:} It has a few issues \\
-\textbf{What it means:} There are bugs in my code 
+\textbf{Architecture:} All nodes communicate with each other through a Gossip protocol similar to Dynamo and Riak, exchanging information about themselves and other nodes they have gossiped with. It is a peer-to-peer system where all nodes are identical. This allows for many interesting features such as no single point of failure, ability to read/write to any node, and lineally scalable. O(1) looks-ups are provided by hashing the key to find out which servers have the needed information (Figure \ref{fig:1}).
 
-\textbf{What is said:} It is self-documenting \\
-\textbf{What it means:} My code doesn't have comments 
+\begin{wrapfigure}{l}{6.5cm}
+\includegraphics[width=\linewidth]{imgs/data_model.jpg} 
+\caption{Cassandra Data Model}\label{fig:2}
+\end{wrapfigure} 
 
-\textbf{What is said:} emacs is better than vim \\
-\textbf{What it means:} It's too peaceful, let's start a flame war
+\textbf{Data Model:} Cassandra’s data model, derived from Google’s BigTable, is a partitioned row datastore organized into tables, where the rows are key-value pairs. Each table contains a set of primary keys which uniquely identify each row of data. Columns in Cassandra are grouped into column family. It is considered schema-free because although the column families are defined, the columns are not. You can freely add any column to any column family at any time, depending on your needs. Another major difference between Cassandra and a relational database is that Cassandra's only datatype is byte array, similar to Apache HBase and Google BigTable. 
 
-\textbf{What is said:} vim is better than emacs \\
-\textbf{What it means:} It's too peaceful, let's start a flame war
-
-\textbf{What is said:} Legacy code \\
-\textbf{What it means:} It works, but no ones knows how
-
-%-----------------------------------------------------------
-
-\hypertarget{secondnews}{\heading{<SECOND TITLE>}{6pt}} 
-
-Has no stet fastidii molestie, ei nec porro idque regione. Eos errem molestiae mediocritatem eu. Ad epicuri copiosae reformidans vix, mea ex conceptam accommodare. Ex assum virtute nominati his, postea verear dissentiunt ea usu, et officiis intellegebat pro. Vix euripidis aliquando repudiandae te, vis natum virtute te, cu electram sapientem voluptaria mea.
-
-Cu assum aliquam his, quo eu populo integre definitiones. Cum epicurei molestiae sadipscing cu, in feugiat explicari nec. Sit id iisque lobortis, vis te consul intellegebat. Verear euripidis at ius, no copiosae probatus recteque mel. Adhuc legimus adversarium ex eam, an eam alia mutat congue, id reque movet vis.
-
-\hypertarget{thirdnews}{\heading{<THIRD TITLE>}{6pt}} 
-
-Mel quando quaestio theophrastus cu. At usu fugit persequeris. Nam ne suscipit insolens platonem, sea an partem voluptua. An qui vero doctus. Ut causae rationibus sit, hinc tota mandamus sit at, pro ei scripta theophrastus reprehendunt. Sea et clita vocent, mei ei similique scriptorem, ut ludus ignota mollis mei.
-
-Ut harum saepe expetendis sed, at tamquam qualisque eum, ut cum aeque dictas voluptua. Nibh eligendi eam no. Ius id vero mutat hendrerit, tamquam repudiandae ut cum, eu sed commodo accusata. Soleat percipitur te cum.
-
-Quo assum accusata scribentur et. An autem mazim imperdiet his, te mel tale vidit definitiones, vix iuvaret qualisque at. No duo novum expetenda. Cu omnes salutatus quo, nobis adipiscing eos ea.
-
-Ponderum sapientem at vix. Ad sit harum melius maiorum, nec an wisi primis. Ne quo dolore facilisi tractatos, erat dolor eloquentiam ex vim. Malis consequat sit ad, elit dissentiet has at, eu per oratio suscipit. Nam autem simul suscipit at.
+\textbf{Consistency}: An additional feature of Cassandra is its tunable data consistency. User can, per query, choose between strong consistency and eventual consistency to best fit their application design. This is done by choosing how many nodes to talk to for each read and write operation. For this example, say there are N replicas for data item x. Clients talk to R nodes for read operations and W nodes for write operations. Cassandra can provide strong consistency if R + W > N, but if the user is fine with occasionally receiving stale data, they can lower that requirement. This allows users to trade consistency for performance gains. \\
+This also allows users to tune your queries depending on the type of work load they have. If most of the operations being performed are read operations, you can decrease R and increase W to decrease read latency, and vice versa for write operations.
 
 \end{minipage} % End the main body - first page mini page
 
