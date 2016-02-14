@@ -37,8 +37,7 @@
 \rhead{\today}
 \lhead{Volume XLVIII Issue \#4}
 \addtolength\footskip{-15px}
-\cfoot{"You know what would be convenient? If dead bodies could hide 
-	themselves." - Holden Lewis (holden)}
+\cfoot{This [porn] has too much plot" - Henry Saniuk (henry)}
 
 %----------------------------------------------------------------------------------------
 %	HEADER IMAGE
@@ -71,6 +70,7 @@
 \hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
 \begin{itemize}
 \item \hyperlink{firstnews}{Subtyping}
+\item \hyperlink{secondnews}{Making things for CSHers Response}
 \end{itemize}
 
 \centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
@@ -176,7 +176,43 @@ covariant in the result. This is valid since
 \{$l_1$: int, $l_2$: int\} <: \{$l_1$: int\}. The other two do not follow the
 typing rule S-RCDWIDTH. 
 
-\includegraphics[width=\linewidth]{imgs/cstheory.png} 
 \end{minipage} % End the main body - first page mini page
+\newpage
 
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{When your hammer is C++, everything begins to look like a thumb}}
+\end{quote}
+\vspace{5px}
+\hypertarget{secondnews}{\heading{Making things for CSHers Response}{6pt}}
+
+
+This is in response to the "Making things for humans" article posted last week. Those are great guidelines for making things for mass market, but CSH is not the mass market and thus you should design accordingly. 
+\\
+\\
+My biggest complaint about the guidelines posted is they prioritize making things simple over making things that are customizable. Customizability is not evil; it means every user can tweak your project to meet their use case. Don't strip away useful features in an effort to make your UI simpler. If you force people to use your project in a particular way, people will only ever use it in that way. One of the great guiding principles of the Unix philosophy is to write programs that can work together, even if you didn't know what the other programs would be. Try to build your project so it can be used as generally as possible build it with reuse in mind. Maybe someone will use it as part of their project.
+\\
+\\
+Don't hide the inner workings of your project. A lot of programs are only "confusing"
+because they hide what they're doing. Both Windows and OSX hide the underlying file structure from you (ever try to go up a level from your user directory in finder or explorer?) and as a result people never learn about how their system is laid out and find it confusing.
+\\
+\\
+Most importantly, build what you want to build it's your project. Don't fret over UI if you don't care about UI, but if that's your jam, go ham on it. You won't satisfy everyone, so you might as well satisfy yourself. Drew and I have very different opinions on what an interface should consist of, and you probably do too. Just don't take either side as gospel, it's as futile as the Vim vs Emacs wars.
+\\
+\\
+\\
+\includegraphics[width=\linewidth]{imgs/cstheory.png} 
 \end{document} 
