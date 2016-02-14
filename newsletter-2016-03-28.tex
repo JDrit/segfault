@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVIII Issue \#7}
+\addtolength\footskip{-15px}
+\cfoot{<quote>}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Sort all the data}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Sorting Algorithms everyone should know}
+\item \hyperlink{secondnews}{Second Section}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\textbf{<TITLE>} \\
+<SHORT SECTION>
+\\
+
+%-----------------------------------------------------------
+
+\captionof*{table}{Voting Results}
+\begin{tabular}{lcr}
+
+Vote & Cost & Result \\
+\midrule
+<NAME> & \$<MONEY> & <STATUS> \\
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Sorting Algorithms everyone should know}{6pt}}
+
+You thought you knew about all the cool sorting algorithms that you learned in your CS1 classes, but I am here to tell you that you do not even know the real sorting algorithms that are used throughout industry. Here we will be going over the most closely guarded sorting algorithms that have ever been invented. The reason you have never heard about any of these is that it is the media and publishers trying to hide the truth from you so that they can keep all the cool sorting to themselves. Don't let them keep you down man!
+\\
+\\
+\textbf{Sleep Sort}
+
+This algorithm has its basics in Number theory. It works by creating a thread per element in your list to sort. Once you do that, tell each thread to sleep equal to the value of the element you gave it. Now all the threads will wake up in sorted order! Congratulations are in order, you now just sorted it all in O(n) time (yes there is a constant C for the sleep time but we are theorists so we are allowed to remove constants :P).
+\\
+\\
+\textbf{Fail Sort}
+
+This is another cool algorithm that can return a sorted list on O(n) time. It works by generating a permutation of the input and checking that new list. If the new list is sorted, return it. Otherwise execute 1 / 0 and segfault. This will guarantee that your program will always return sorted data.
+\\
+\\ 
+\textbf{Bogo Sort}
+
+Ever wanted a really amazing sorting algorithm that does almost no work a lot? Then look no further than bogo sorting. This involves a very complex process in which you generate a random permutation of the input the list and see if it is sorted. If it is, then you are done. Otherwise try again. See how simple that was? Now you too can implement it in all of your code and be a super cool hacker bro.
+\\
+\\
+\textbf{Quantum Bogo Sort}
+
+Now this algorithm is super cool and realizes on quantum dimensional physics. You also have to believe in the existence of an unlimited parallel universes. This algorithm is based on the previous algorithm. The first step is to run bogo sort. Now due to the proof of infinite parallel universes, there must be at least one universe in which the list is sorted. Jump to that universe and you have now sorted the list in O(1) time! How amazing is that!
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{<SECOND TITLE>}{6pt}} 
+
+Has no stet fastidii molestie, ei nec porro idque regione. Eos errem molestiae mediocritatem eu. Ad epicuri copiosae reformidans vix, mea ex conceptam accommodare. Ex assum virtute nominati his, postea verear dissentiunt ea usu, et officiis intellegebat pro. Vix euripidis aliquando repudiandae te, vis natum virtute te, cu electram sapientem voluptaria mea.
+
+Cu assum aliquam his, quo eu populo integre definitiones. Cum epicurei molestiae sadipscing cu, in feugiat explicari nec. Sit id iisque lobortis, vis te consul intellegebat. Verear euripidis at ius, no copiosae probatus recteque mel. Adhuc legimus adversarium ex eam, an eam alia mutat congue, id reque movet vis.
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 

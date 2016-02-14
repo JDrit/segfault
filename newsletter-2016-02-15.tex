@@ -19,6 +19,12 @@
 
 \input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
 
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{proof}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \begin{document}
 
 %--------------------------------------------------------------------------------
@@ -29,10 +35,10 @@
 \fancyhf{}
 \chead{segfault@csh.rit.edu}
 \rhead{\today}
-\lhead{Volume XLVIII Issue \#3}
+\lhead{Volume XLVIII Issue \#4}
 \addtolength\footskip{-15px}
-\cfoot{"Wait you need water to make coffee!?!" - Ben Grawi (bgrawi)}
-\setlength{\headsep}{0.1in}
+\cfoot{"You know what would be convenient? If dead bodies could hide 
+	themselves." - Holden Lewis (holden)}
 
 %----------------------------------------------------------------------------------------
 %	HEADER IMAGE
@@ -49,7 +55,7 @@
 \vspace{-15px}
 \begin{quote}
 \centering
-\textbf{\textit{Yes I do mine your data}}
+\textbf{\textit{When your hammer is C++, everything begins to look like a thumb}}
 \end{quote}
 \vspace{10px}
 
@@ -64,8 +70,7 @@
 
 \hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
 \begin{itemize}
-\item \hyperlink{firstnews}{Jaccard Distance Metric}
-\item \hyperlink{secondnews}{NNTP Data Mining}
+\item \hyperlink{firstnews}{Subtyping}
 \end{itemize}
 
 \centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
@@ -74,11 +79,14 @@
 
 \textbf{Notable Upcoming Events:}
 \begin{enumerate}[leftmargin=0.2cm]
-\item \textbf{Maxime Bourgeois's Birthday} Feb. 17 \\
-	Happy birthday Max, you da man!
+\item \textbf{Schuyler Martin's Birthday} Feb. 8 \\
+	Happy 22nd Birthday best pal of mine!!
 \\
-\item \textbf{Nick Breeman} Feb. 19 \\
-	Happy birthday Nick, now go study for the psych test!
+\item \textbf{GCCIS Fair: Who's In Our House?} Feb. 17 3pm \\
+	GCCIS is having a club fair for CS related organizations, located in the atrium. Try and come support CSH if you are free during this time. Talk to Victoria if you have any additional questions.
+\\
+\item \textbf{Freezefest} Feb. 20 \\
+	With John Mulaney and Nick Kroll, located in the Gordon Field House.
 \\
 \end{enumerate}
 
@@ -86,9 +94,7 @@
 
 
 \textbf{Joke of the Week} \\
-"If you put a million monkeys at a million keyboards, one of them will eventually write a Java program. \\
-
-The rest of them will all write Perl programs."
+I would tell you a UDP joke, but you might not get it.
 \\
 
 %-----------------------------------------------------------
@@ -113,65 +119,64 @@ Vote & Cost & Result \\
 %
 \begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
 \vspace{-0.4cm}
-\hypertarget{firstnews}{\heading{Jaccard Distance Metric}{6pt}}
+\hypertarget{firstnews}{\heading{Subtyping}{6pt}}
 
-The Jaccard index, also known as the Jaccard similarity coefficient (originally coined coefficient de communauté by Paul Jaccard), is a statistic used for comparing the similarity and diversity of sample sets. The Jaccard coefficient measures similarity between finite sample sets, and is defined as the size of the intersection divided by the size of the union of the sample sets: \\
+The concept of subtyping is found throughout most programming languages. What it
+entails is that if we are given type \textit{A}, then we can defined a narrower
+type \textit{B}, such that all values of type \textit{B} are also of type 
+\textit{A}. This relationship is written as \textit{B} <: \textit{A}. 
+This subtyping relationship is reflexive (\textit{A} <: \textit{A})  and transitive
+(\textit{A} <: \textit{B} $\bigwedge$ \textit{B} <: \textit{C} $\rightarrow$
+\textit{A} <: \textit{C}). Function subtyping is defined as: \\
 \\
-\begingroup
-    \fontsize{18pt}{12pt}\selectfont
-	\centerline{d(x, y) = $\frac{\vert\ x\ \cap\ y\ \vert}{\vert\ x\ \cup\ y\ \vert}$}
-\endgroup
+\centerline{$\infer{\tau'_a\ \rightarrow\ \tau'_r\ <:\ \tau_a\ \rightarrow\ \tau_r}
+	   {\tau_a\ <:\ \tau'_a\ \ \ \tau'_r\ <:\ \tau_r}$}
 \\
+\textbf{Covariance}: \\
+Say for example we have a function of type \textit{Boolean} $\rightarrow$
+\textit{Integer} and that \textit{Integer} <: \textit{Double}. This return type
+of this function is \textit{Integer} though it can be also be subtyped to return 
+types of \textit{Double}. This \textbf{replacement of wider types with narrower
+types} is called covariance. Function are covariant in their result types. \\
+\\
+\centerline{$\infer{boolean\ \rightarrow\ integer\ <:\ boolean \rightarrow\ double}
+	   {boolean\ <:\ boolean\ \ \ integer\ <:\ double}$}
+\\
+\textbf{Contravariance}: \\
+Consider the function of type \textit{Double} $\rightarrow$ \textit{Boolean}. We
+can use this function anywhere that expects a function of type \textit{integer}
+$\rightarrow$ \textit{boolean}. This \textbf{replacement of narrower types with 
+wider types} is called contravirance. This is allowed since \textit{integer} <:
+\textit{double}.Functions are contravariant in their argument types. \\
+\\
+\centerline{$\infer{double \rightarrow\ boolean\ <:\ integer\ \rightarrow\ boolean}
+	   {integer\ <:\ double\ \ \ boolean\ <:\ boolean}$}
+\\
+\\
+\textbf{Lambda Calculus Example}: \\
+$\lambda$ x. \{$l_1$: int, $l_2$: int\}. \{$l_1$: x.$l_2$, $l_2$: x.$l_1$\} \\
+$\cdot$ $\vdash$ $\lambda$ x. \{$l_1$: int, $l_2$: int\}. \{$l_1$: x.$l_2$, $l_2$: x.$l_1$\} : \{$l_1$: int, $l_2$: int\} $\rightarrow$ \{$l_1$: int, $l_2$: int\}  \\
+\\
+S-RCDWIDTH: 
+$\infer{\{l_1\ :\ \tau_1,\ ...,\ l_{n+1}\ :\ \tau_{n+1}\}\ <:\ \{l_1\ :\ \tau_1,\ ...,\ l_n\ :\ \tau_n\}}{}$ \\
+\\
+While this seems complicated, all it does is define a function that takes a record
+of size 2 and returns the input record with the elements swapped in it. The type 
+rule S-RCDWIDTH gives us the declaration of width subtyping. This rule just says
+that records with more fields is a subtype of records with smaller amount of fields,
+if all the other fields left are the same type. This function can be subtyped to 
+many different types as long as we are contravariance in the argument type and covariance in the result. 
 
-An important class of problems that Jaccard addresses well is that of finding textually similar documents in a large corpus such as the Web or a collection of news articles. Many of these involve finding duplicates or near duplicated. First, let us observe that testing whether two documents are exact duplicates is easy; just compare the two documents character-by-character. However, in many applications, the documents are not identical, yet they share large portions of their text. Here are some examples: \\
-\\
-\textbf{Plagiarism:} \\
-Finding plagiarized documents tests our ability to find textual similarity. The plagiarizer may extract only some parts of a document for his own. He may alter a few words and may alter the order in which the sentences appear. No simple process of comparing documents character-by-character will detect sophisticated plagiarism. \\
-\\
-\textbf{Mirror Page:} \\
-It is common for important or popular web sites to be duplicated at a number of hosts, in order to share the load. The pages of these \textit{mirror} sites will be quite similar, but are rarely identical. For instance, they might each contain information associated with their particular host, and they might contain links to the other mirror sites but not to themselves. It is important to be able to detect similar pages of these kinds, because search engines produce better results if they avoid showing two pages that are nearly identical within the first page of results. \\
-\\
-\textbf{Articles from the Same Source:} \\
-It is common for one reporter to write a news article that gets distributed say through the Associated Press, to many newspapers, which then publish the article on their sites. Each newspaper changes the article somewhat. They may cut out paragraphs, or even add material of their own. they most likely will surround the article with their own logo or adds. News aggregators try to find all versions of such an article, in order to show only one, and that task requires finding when two web pages are textually similar, although not identical.  
+\cmark \{$l_1$: int, $l_2$: int, $l_3$: int\} $\rightarrow$ \{$l_1$: int\} \\
+\xmark \{$l_1$: int\} $\rightarrow$ \{$l_1$: int\} \\
+\xmark \{$l_1$: int, $l_2$: int\} $\rightarrow$ \{$l_1$: int, $l_2$: int\, $l_3$: int\}  \\
+The first one type checks since it is contraviariant in the argument type and
+covariant in the result. This is valid since
+\{$l_1$: int, $l_2$: int, $l_3$: int\} <: \{$l_1$: int, $l_2$: int\} and 
+\{$l_1$: int, $l_2$: int\} <: \{$l_1$: int\}. The other two do not follow the
+typing rule S-RCDWIDTH. 
 
-%-----------------------------------------------------------
-
-
+\includegraphics[width=\linewidth]{imgs/cstheory.png} 
 \end{minipage} % End the main body - first page mini page
-
-\pagebreak
-
-\hypertarget{secondnews}{\heading{NNTP Data Mining}{6pt}} 
-
-Some people wanted me to post the results of my data mining project of our NNTP server, so here is the abstract.  \\
-\\
-Our server has over 125,000 posts but I only used the last 3 years of data, which was 8,145 posts. Data mining was done using agglomerative clustering over the body of the posts. Text-mining can be difficult to deal with since it cannot be represented in Euclidean space. To get around this, Jaccard similarity coefficient was used as the distance metric since it is able to effectively find similar data. It produces a   value between one and zero where zero means the two items are identical and one means they have nothing in common. Preprocessing was done on the data to remove stop words, normalize the data, and to preform dimensionality reduction. \\
-\\
-\centerline{\textbf{Results}}
-
-\begin{multicols}{2}
-
-\centerline{\includegraphics[width=\linewidth]{imgs/2016-02-15-clusters.png}}
-
-As shown here, the biggest cluster was a combination of all the meeting notes posted by our glorious e-board members. This cluster was easy to find since most of our e-board members post notes following a very similar format and talk about similar material. An interesting side note is that \textbf{Marck} Billow generated a cluster of his own due to how unique his meeting notes are. He just had to be special...
-
-\centerline{\includegraphics[width=\linewidth]{imgs/2016-02-15-users.png}}
-
-Here are the most active users of our NNTP server. As shown here, our top 12 users accounted for 37.58\% of the total posts in the last 3 years. \\
-\\
-
-
-\vfill
-\columnbreak
-
-\centerline{\includegraphics[width=\linewidth]{imgs/2016-02-15-error.png}}
-
-The error rate of a cluster was generated by the average distance between every post in the cluster. This forms a value between 1 and 0, in which 0 means all posts are identical and 1 means that there are no shared similarities. The results from this graph make sense since the birthday bot posts very similarly formatted messages so that cluster has the lowest differences between posts. Weekly food orders tend to involve the same people and all be about the same topic so that cluster also has a low error rate. 
-
-
-
-Let me know if you have additional questions about my findings. 
-
-\end{multicols}
 
 \end{document} 

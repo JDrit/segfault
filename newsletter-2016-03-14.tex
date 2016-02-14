@@ -1,0 +1,130 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVIII Issue \#6}
+\addtolength\footskip{-15px}
+\cfoot{"I'm just imagining Derek in a diaper now" - Will Ziener-Dignazio (slackwill)}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Just do it already}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.33\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Sequential Consistency}
+\item \hyperlink{secondnews}{Client-Centric Consistency Models}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\textbf{Funny (Real) CS Quote:} "There are two ways of constructing a software design. One way is to make it so simple that there are obviously no deficiencies. And the other way is to make it so complicated that there are no obvious deficiencies." - \textbf{C.A.R. Hoare}
+
+
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.64\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Sequential Consistency}{6pt}}
+Sequential consistency is an important data-centic consistency model, which was first defined by Lamport in the context of shared memory for multiprocessor systems. In general, a data store is said to be sequentially consistent when it satisfies the following condition:
+\begin{changemargin}{0.6cm}{0.6cm} 
+\textit{The result of any execution is the same as if the (read and write) operations by all process on the data store were executed in some sequential order and the operations of each individual process appear in this sequence in the order specified by its program.}
+\end{changemargin}
+What this definition means is that when processes run concurrently on different machines, any valid interleaving of read and write operations is acceptable behavior, but \textit{all processes see the same interleaving of operations.} An example of sequential consistency is seen in Lamport's Part-time parliament paper and Diego's Raft paper.
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{Client-Centric Consistency Models}{6pt}}
+
+Many consistency models try and provide a system-wide consistent view, but this can be expensive and time consuming. An alternative approach is called client-centric consistency models, in which consistency requirements are moved to the client's view. We will go over some of these now. \\
+\\
+\textbf{Monotonic-Reads:} If a process reads the value of data item x, any successive read operation on x by that process will always return the same value of a more recent value. In other words, monotonic-read guarantees that if a process has seen a value of x at time t, then it will never see an older value of x at a later time.
+
+\textbf{Monotonic-Writes:} A write operation by a process on a data item x is completed before any successive write operations on x by the same process. Thus completing a write operation means that the copy on which a successive operation is preformed on reflects the effect of a previous write operation by the same process. If need be, the new write must wait for old ones to finish. This resembles FIFO consistency, in which write operations by the same process are preformed in the correct order everywhere. 
+
+\textbf{Read-Your-Writes:} The effect of a write operation by a process on data item x will always be seen by a successive read operation on x by the same process. Write operations are always completed before a successive read operation by the same process, no matter where the read operation takes place. 
+
+\textbf{Write-Follow-Reads:} A write operation by process on a data item x following a previous read operation on x by the same process is guaranteed to take place on the same or more recent value of x that was read. Successive write operations by a process on a data item x will be preformed on a copy of x that is up to date with the value most recently read by that process.
+
+\centering{\includegraphics[width=0.8\linewidth]{imgs/santa.png}}
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 
