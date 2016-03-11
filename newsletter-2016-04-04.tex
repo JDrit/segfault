@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLVIII Issue \#8}
+\addtolength\footskip{-15px}
+\cfoot{<QUOTE>}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{<SUBTITLE>}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{The superior design of the station wagon}
+\item \hyperlink{secondnews}{Classes of Problems}w
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\item \textbf{<EVENT NAME>} <DATE + TIME> \\
+	<DESCRIPTION>
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\textbf{<TITLE>} \\
+<SHORT SECTION>
+\\
+
+%-----------------------------------------------------------
+
+\captionof*{table}{Voting Results}
+\begin{tabular}{lcr}
+
+Vote & Cost & Result \\
+\midrule
+<NAME> & \$<MONEY> & <STATUS> \\
+\bottomrule
+\end{tabular}
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{The superior design of the station wagon}{6pt}}
+
+Over the past couple decades we have witnessed the slow death of the station wagon. At the same time we have seen the rise of the crossover which emerged to fill the void the wagon left. There are many differing opinions on why this happened, but regardless of reason, it is a tragedy. Station wagons offer the best of both sedans and SUVs while crossovers are the bastard children from when a minivan got freaky with a sedan.
+
+Station wagons are the superior car choice. They are much lower to the ground and as a result offer better handling. The station wagon will gracefully slide around corners while the crossover will flip and roll. The wagon's low, sleek profile also reduces aerodynamic drag, resulting in better fuel economy and tighter handling at high speed. 
+
+Not only do station wagons drive better, but they are more practical as well. They offer more usable cargo space and roof space. Ever tried to fit 2x4's or a full size door in a crossover? The station wagon eats 2x4's and doors for breakfast, then comes back for a second helping of plywood. While crossovers typically have more vertical store, I would argue the extra length is significantly more useful. Their longer cargo space also better accommodates humans. Fold down the seats and you have the ideal space to sleep, relax, or do other human activities.
+
+%-----------------------------------------------------------
+
+\hypertarget{secondnews}{\heading{Classes of Problems}{6pt}} 
+
+We will be going over different classes of decision problems and how they relate to each other. Remember that all that decision problems are yes or no answers to a given input.
+
+\textbf{P: Polynomial Time} \\
+P is the complexity class for all problems that are solvable by a deterministic turning machine in time polynomial to the size of the input. This includes algorithms that have Big-O such as O(n), O(log(n)), and even O($n^{100}$). 
+
+\textbf{NP: Non-deterministic Polynomial Time} \\
+NP is the class of problems that are harder to solve for. There does not exists a polynomial time deterministic turning machine to solve these problems. While they are hard to solve for, if given an answer, it can be verified in polynomial time. Integer factorisation is a NP problem.
+
+\textbf{NP-Complete: Non-deterministic Polynomial Complete Time} \\
+NP-Complete is a special subset of NP algorithms. What makes these special is that all other problems in NP are polynomial time, many-to-one reducible to every NP-Complete problem. This is important since it we are able to find a polynomial time solution to \textbf{any} NP-Complete problem, then we will be able to solve any NP problem in polynomial time. The boolean satisfiability problem is an example of an NP-Complete problem.
+
+\textbf{NP-Hard: Non-deterministic Polynomial Hard Time} \\
+NP-Hard problems are problems that are \textit{at least as hard as} NP-Complete problems. What this means is that a problem is NP-Hard if there is an NP-Complete problem that is reducible to it in polynomial time. An example of an NP-Hard problem is the Halting problem.
+
+
+\end{minipage} % End the main body - first page mini page
+
+\end{document} 
