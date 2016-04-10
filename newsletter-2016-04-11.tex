@@ -29,9 +29,9 @@
 \fancyhf{}
 \chead{segfault@csh.rit.edu}
 \rhead{\today}
-\lhead{Volume XLVIII Issue \#9}
+\lhead{Volume XLVIII Issue \#8}
 \addtolength\footskip{-15px}
-\cfoot{<QUOTE>}
+\cfoot{"I'm pretty sure men can have female orgams, and that is pretty great!" - John King (johnsk)}
 
 %----------------------------------------------------------------------------------------
 %	HEADER IMAGE
@@ -48,7 +48,7 @@
 \vspace{-15px}
 \begin{quote}
 \centering
-\textbf{\textit{<SUBTITLE>}}
+\textbf{\textit{ALMOST TIME FOR 40th!!!}}
 \end{quote}
 \vspace{10px}
 
@@ -63,8 +63,8 @@
 
 \hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
 \begin{itemize}
-\item \hyperlink{firstnews}{B-Trees}
-\item \hyperlink{secondnews}{Software Engineer Translator}
+\item \hyperlink{firstnews}{The superior design of the station wagon}
+\item \hyperlink{secondnews}{Classes of Problems}
 \end{itemize}
 
 \centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
@@ -73,19 +73,32 @@
 
 \textbf{Notable Upcoming Events:}
 \begin{enumerate}[leftmargin=0.2cm]
-\item \textbf{<EVENT NAME>} <DATE + TIME> \\
-	<DESCRIPTION>
-\\
-\item \textbf{<EVENT NAME>} <DATE + TIME> \\
-	<DESCRIPTION>
-\\
+\item \textbf{WITR Talk} Apr. 13, 9pm \\
+  \\
+\item \textbf{Super Game Jam Showing} Apr. 13, 10pm \\
+  Zach and Noah are
+  \\
+\item \textbf{40th!!!} Apr. 15 - 17 \\
+  The event you have all been waiting for is finally here! Hello to all the
+  alumni that are reading this.
+  \\
+\item \textbf{Polisseni Tour} Apr. 16, 2pm \\
+  There will be tours going on of RIT new hockey arena for all members, more
+  information to come.
+  \\
+\item \textbf{Formal Dinner} Apr. 16, 6pm \\
+    In the evening there will be a formal banquet held in the Davis Room of the
+    Student Alumni Union. There will be plenty of refreshments, a dance floor,
+    and a brief speech on the current state of Computer Science House.
+    \\
 \end{enumerate}
 
 %-----------------------------------------------------------
 
-
-\textbf{<TITLE>} \\
-<SHORT SECTION>
+\textbf{Amendments:} \\
+\textbf{optional dicussion:} Max's proposal is to move all discussions for amendments
+to the end of house meeting and make them optional for all members. Any one who
+leaves will have their vote counted as an abstention.
 \\
 
 %-----------------------------------------------------------
@@ -110,55 +123,42 @@ Vote & Cost & Result \\
 %
 \begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
 \vspace{-0.4cm}
-\hypertarget{firstnews}{\heading{B-Trees}{6pt}}
- 
-A b-tree is a type of self-balancing tree data structure that is heavily used in databases and
-compute clusters. It is a type of binary search tree but it differs in that a node can have more
-than 2 children. In fact, it has as many children as it can so that they all fit into a block on
-disk. This way all of the children are read into memory with only 1 read. This makes it so that
-they are optimized for systems that read and write large blocks of data, aka databases.
+\hypertarget{firstnews}{\heading{The superior design of the station wagon}{6pt}}
 
-They wre introduced in 1907, and are still found in almost all major system today. They remain
-to this date the standard way to implement on-disk indexes for almost all major relational
-databases. Traditionally b-trees break each node into blocks of 4KB of size, due to the average
-block size on-disk. Most of the data is stored on disk so that it can handle more than the size
-of the memory on the machine. It takes advantage of the system's page cache to keep the most use
-nodes in memory.
+Over the past couple decades we have witnessed the slow death of the station wagon. At the same time we have seen the rise of the crossover which emerged to fill the void the wagon left. There are many differing opinions on why this happened, but regardless of reason, it is a tragedy. Station wagons offer the best of both sedans and SUVs while crossovers are the bastard children from when a minivan got freaky with a sedan.
 
-\includegraphics[width=0.8\linewidth]{imgs/b-tree.png}
+Station wagons are the superior car choice. They are much lower to the ground and as a result offer better handling. The station wagon will gracefully slide around corners while the crossover will flip and roll. The wagon's low, sleek profile also reduces aerodynamic drag, resulting in better fuel economy and tighter handling at high speed. 
 
-One page is designated as the root node for the b-tree. The first step is to pull that node from
-disk. It is normally located in memory already so the cost is very cheap. This node contains k
-children references and the range of nodes that each is responsible for. You determine which
-child you want to visit and repeat the process with reading it from disk. This process is designed
-to do as little disk IO as possible.
+Not only do station wagons drive better, but they are more practical as well. They offer more usable cargo space and roof space. Ever tried to fit 2x4's or a full size door in a crossover? The station wagon eats 2x4's and doors for breakfast, then comes back for a second helping of plywood. While crossovers typically have more vertical store, I would argue the extra length is significantly more useful. Their longer cargo space also better accommodates humans. Fold down the seats and you have the ideal space to sleep, relax, or do other human activities.
 
 %-----------------------------------------------------------
 
-\hypertarget{secondnews}{\heading{Software Engineer Translator}{6pt}}
+\hypertarget{secondnews}{\heading{Classes of Problems}{6pt}} 
 
-\textbf{What is said:} This is a horrible hack \\
-\textbf{What it means:} This is a something that I did not write
+We will be going over different classes of decision problems and how they relate to each
+other. Remember that all that decision problems are yes or no answers to a given input.
 
-\textbf{What is said:} It's broken \\
-\textbf{What it means:} There are bugs in your code
+\textbf{P: Polynomial Time} \\
+P is the complexity class for all problems that are solvable by a deterministic turning machine in
+time polynomial to the size of the input. This includes algorithms that have Big-O such as O(n),
+O(log(n)), and even O($n^{100}$).
 
-\textbf{What is said:} It has a few issues \\
-\textbf{What it means:} There are bugs in my code
+\textbf{NP: Non-deterministic Polynomial Time} \\
+NP is the class of problems that are harder to solve for. There does not exists a polynomial time
+deterministic turning machine to solve these problems. While they are hard to solve for, if given an
+answer, it can be verified in polynomial time. Integer factorisation is a NP problem.
 
-\textbf{What is said:} It is self-documenting \\
-\textbf{What it means:} My code doesn't have comments
+\textbf{NP-Complete: Non-deterministic Polynomial Complete Time} \\
+NP-Complete is a special subset of NP algorithms. What makes these special is that all other
+problems in NP are polynomial time, many-to-one reducible to every NP-Complete problem. This is
+important since it we are able to find a polynomial time solution to \textbf{any} NP-Complete
+problem, then we will be able to solve any NP problem in polynomial time. The boolean satisfiability
+problem is an example of an NP-Complete problem.
 
-\textbf{What is said:} emacs is better than vim \\
-\textbf{What it means:} It's too peaceful, let's start a flame war
-
-\textbf{What is said:} vim is better than emacs \\
-\textbf{What it means:} It's too peaceful, let's start a flame war
-
-\textbf{What is said:} Legacy code \\
-\textbf{What it means:} It works, but no ones knows how
-
-
+\textbf{NP-Hard: Non-deterministic Polynomial Hard Time} \\
+NP-Hard problems are problems that are \textit{at least as hard as} NP-Complete problems. What this
+means is that a problem is NP-Hard if there is an NP-Complete problem that is reducible to it in
+polynomial time. An example of an NP-Hard problem is the Halting problem.
 
 
 \end{minipage} % End the main body - first page mini page
