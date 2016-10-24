@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLIX Issue \#8}
+\addtolength\footskip{-15px}
+\cfoot{"Shove me up Christopher Walken's asshole" - Sophia Lynch (sophia)}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Recursive --adj See recursive}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on CSH\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Social Good, Technical Bad}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{The Pacific with Trevor and Braden} 9:30pm-12am, Sunday\\
+	AMAZING War mini-series. Ask Trevor and Braden for more info! Not too late to get in!
+\\
+\item \textbf{History Discussion} 9pm, Wednesday \\
+	Discussion! We're going to be talking about "What Makes a Good Eboard Member?"
+\\
+\item \textbf{Insights Committee} 6pm Friday\\
+	Insights Committee! One of the most important events of the year! 
+\\
+\item \textbf{Halloween-palooza!} 7pm, Wednesday \\
+	I actually have no idea what this is!
+\\
+\item \textbf{PuzzleBobble/Wind Jammers/MTG} 2pm, Saturday \\
+	My sources have informed me that Brandon Chiu is still banned.
+\\
+\item \textbf{Drag Night!} 6pm, Saturday\\
+	Hello Ladies and Gents! Time to get sexy and eat some Gracie's! Trips to Amvets as well as goodwill should be happening throughout the week! 
+\\
+\item \textbf{Until Dawn} 7pm, Saturday\\
+	Collect Totems, Chase Doggos, and hide in the woods! With friends! 
+\\
+\item \textbf{Freshmen Project} 1pm - 5pm, Sunday\\
+	Freshmen help people other than themselves! 
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+\textbf{Joke of the Week:\\}
+\textbf{Q:}What is the saddest wood? \\
+\textbf{A:}Bamboo \\ 
+%-----------------------------------------------------------
+
+\end{mdframed}
+\vspace{10px}
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+\textbf{Editor's Note:} \\
+This is not the original version of Segfault printed on October 16th. Mistakes in event descriptions were fixed. Thankyou to Michaela Dinman and Brandon Chiu for pointing them out. 
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Tips for Being a Social Member \\ by Liam Middlebrook}{6pt}}
+ 
+\textbf{Definitions} \\
+\textbf{Trumper:} \textit{Noun} \\
+A member who values technical skill over social skill. Trumpers have been
+known to claim "but if we're \textbf{Computer} Science House, shouldn't members
+understand computers?"
+
+\textbf{Meme:} \textit{Noun} \\
+A joke gifted to us by 4chan or Reddit that only the cool kids will get.
+Anyone who is annoyed by memes is a Trumper and should be ignored.
+
+\textbf{10 Weeks:} \\
+Avoid going to too many technical seminars, Braden and Meghan might say that
+the constitution requires you to go to two, don't listen to them you don't want
+to be made fun of and called a Trumper. You should probably attend at least one,
+but don't worry you can always go to a seminar by someone like Sneha or Oliver
+who will just give you free attendance and you can just browse the net for dank
+memes.
+
+Make sure to go to \textbf{every} social event that is hosted. If you miss more than
+three of these you'll be shunned for being a Trumper. If you can try to host
+your own social event with the help of our fabulous Social Director, Trumpers
+would never host a social event so this will help you for 10 weeks.
+
+As long as you don't try to do any projects before 10 weeks you should be fine.
+People who do projects before 10 weeks are automatically classified as Trumpers
+and will not be allowed to social events.
+
+\textbf{Life on Floor} \\
+Make sure to avoid the following rooms, these are known Trumper sighting
+locations
+\begin{itemize}
+\item Project Room 
+\item Research Room
+\item Server Room 
+\item NRH 3063 
+\end{itemize}
+If you find yourself stuck in one of these rooms immediately start listing off
+all of the memes you have memorized and slowly back out, never turning your back
+from a Trumper.
+
+\textbf{Final Comments} \\
+At the end of the day it's us versus them. If you think someone you know is
+becoming technical invite them over to the Lounge to watch some /r/youtubehaiku
+until 4am, it's the most effective way to stop people from doing projects.
+
+%-----------------------------------------------------------
+
+
+\end{minipage} % End the main body - first page mini page
+
+%\centering\vspace{0.5cm}\includegraphics[width=0.78\linewidth]{imgs/example.png}
+\end{document} 
