@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLIX Issue \#9}
+\addtolength\footskip{-15px}
+\cfoot{"Fish have ass." - Laurie Jean-Francois \\
+	"Real fish don't have ass." - Jennika Haining}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Printed on Monica Lewprintski since '98}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on CSH\dots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{Technical Good, Social Bad}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{The Pacific with Trevor and Braden} 9:30pm-12am, Sunday\\
+	AMAZING War mini-series. Ask Trevor and Braden for more info! Not too late to get in!
+\\
+\item \textbf{Rohit's Gundam Seminar} 7pm, Monday\\
+	ROBOTS. MAKE ROBOTS. MAKE ANIME ROBOTS. 
+\\
+\item \textbf{Jello's C Seminar} 6:30pm, Tuesday\\
+	Get a leg up on the other CS major's and learn some cool shit. AT THE SAME TIME! 
+\\
+\item \textbf{Efe's HTML 5 Seminar} 7:30pm, Tuesday\\
+	Web shit is cool! Learn to do cool shit with it!
+\\
+\item \textbf{History Discussion} 9pm, Wednesday \\
+	Discussion! We're going to be doing a Freshmen Project post-mortem. Should be keep doing it? Who knows!
+\\
+\item \textbf{Cop Dog!} 6pm Friday\\
+	Ricky delivers to us the film of the year! 
+\\
+\item \textbf{10 Weeks AKA, Freshmen Evans} 8am, Saturday \\
+	We can't wait to evaluate all 50 of you... 
+\\
+
+\end{enumerate}
+
+%-----------------------------------------------------------
+%\textbf{Joke of the Week:\\}
+%\textbf{Q:}What is the saddest wood? \\
+%\textbf{A:}Bamboo \\ 
+%-----------------------------------------------------------
+
+\end{mdframed}
+\vspace{10px}
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+\textbf{Editor's Note:} \\
+This is the second part of a two part series, and is meant to be \textbf{purely satire}. \\
+If you would like to submit an article to be printed in Segfault, you can do so by emailing the editor at \\ \textbf{segfault@csh.rit.edu}. 
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{How to Become the Most Technical by Jacob Stenstrom}{6pt}}
+\textbf{Definitions} \\
+\textbf{Social:} \textit{Noun} \\
+A member who values social skill over technical skill. Socials have been known to claim “shouldn't Computer Science House be a social \textbf{community} of people interested in computers?” \\ \\
+\textbf{Projects:} \textit{Noun} \\
+Your reason for living. Projects are your bread and butter, and without them you are not being productive and only wasting the oxygen of those who are. If you're not working on a project, you might as well stop what you're doing and work on a project instead. \\ \\
+\textbf{10 Weeks} \\
+Go to as many technical seminars as possible, Braden and Meghan might say that the constitution only requires you go to two, don’t listen to them. When 10 weeks rolls around, you don’t want to seem uninterested in learning everything about computers and look like a Social. You should absolutely go to as many seminars as you can so you can brag about your knowledge to others. \\
+Additionally, don’t worry about going to any social events. When you think about, seminars are kind of like social events. Going to any social event is a risk since it might out you as a Social, and there is no return from such a fate. \\
+Most important of all, of course, is projects. Even though having a project done before ten weeks is not a requirement to pass 10 weeks, the only freshmen who should pass are the ones who do. Think about it, if you aren't working on something in your first 10 weeks here, do you really deserve to be a member? \\\\ 
+\textbf{Life on Floor} \\
+Make sure to avoid places like the Lounge where Socials often gather. Social's love unproductive work environments that will make it difficult for you to focus on your incredibly important work. If you find yourself stuck in a room that lacks productivity, simply begin talking about your most recent work and don’t stop until every Social in the room leaves or feigns interest. Really though, it doesn’t matter exactly what you talk about, most Socials will easily be put off by your intelligence. Once the relative meme count is lowered and the Socials have vacated the room, you should begin to make the room as productive as it should have always been.\\\\ 
+\textbf{Final Comments} \\
+At the end of the day it’s us versus them. If you think someone you know is becoming social, have a chat with them about how being social won’t get them a job. Then, turn them around, and throw them towards a project to work on with you. Remember, projects are the most effective way to ensure we can make CSH great again
+
+%-----------------------------------------------------------
+
+
+\end{minipage} % End the main body - first page mini page
+
+%\centering\vspace{0.5cm}\includegraphics[width=0.78\linewidth]{imgs/example.png}
+\end{document} 

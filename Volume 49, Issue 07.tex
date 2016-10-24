@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional Newsletter Template
+% LaTeX Template
+% Version 1.0 (09/03/14)
+%
+% Created by:
+% Bob Kerstetter (https://www.tug.org/texshowcase/) and extensively modified by:
+% Vel (vel@latextemplates.com)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt]{extarticle} % The default font size is 10pt; 11pt and 12pt are alternatives
+
+\input{structure.tex} % Include the document which specifies all packages and structural customizations for this template
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+% HEADER DETAILS
+%--------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{segfault@csh.rit.edu}
+\rhead{\today}
+\lhead{Volume XLIX Issue \#7}
+\addtolength\footskip{-15px}
+\cfoot{"I'm about to drop some science on your bitch ass." ~Jimmy DiGrazia}
+
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering\vspace{0.5cm}\includegraphics[width=0.8\linewidth]{imgs/segfault.png}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+% HEADER QUOTE
+%--------------------------------------------------------------------------------
+
+\vspace{-15px}
+\begin{quote}
+\centering
+\textbf{\textit{Freshly Hung}}
+\end{quote}
+\vspace{10px}
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR - FIRST PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace{-0.5cm}\begin{minipage}[t]{.35\linewidth} % Mini page taking up 35% of the actual page
+\begin{mdframed}[style=sidebar,frametitle={}] % Sidebar box
+
+%-----------------------------------------------------------
+
+\hypertarget{contents}{\textbf{{\large This week on floor\ldots}}} % \hypertarget provides a label to reference using \hyperlink{label}{link text}
+\begin{itemize}
+\item \hyperlink{firstnews}{10 Linux Commands}
+\end{itemize}
+
+\centerline {\rule{.75\linewidth}{.25pt}} % Horizontal line
+
+%-----------------------------------------------------------
+
+\textbf{Notable Upcoming Events:}
+\begin{enumerate}[leftmargin=0.2cm]
+\item \textbf{Dockerizing Apps with Steven} 4pm, Monday \\
+	Hey freshmen! You know you need those Technical Seminars right? Tying a tie doesn't count!
+\\
+\item \textbf{Turkey with Efe} 7pm Tuesday\\
+	A quick seminar on cooking a turkey by Efe! 
+\\
+\item \textbf{Soapy Seminar with Drew} 6pm, Wednesday \\
+	Learn how to make music come out a shower head! With an RFID tag no less!
+\\
+\item \textbf{History Discussion} 9pm, Wednesday \\
+	Game Jam post mortem!
+\\
+\item \textbf{Homecoming Hockey Game!} 7pm, Saturday\\
+	HOCKEY!!! Let's beat the snot out of em!
+\\
+\item \textbf{The Pacific with Trevor and Braden} 9:30pm-12am, Sunday\\
+	AMAZING War mini-series. Ask Trevor and Braden for more info! 
+\\
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+\end{mdframed}
+\end{minipage}\hfill % End the sidebar mini page 
+%
+%----------------------------------------------------------------------------------------
+%	MAIN BODY - FIRST PAGE
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{.61\linewidth} % Mini page taking up 61% of the actual page
+\vspace{-0.4cm}
+\hypertarget{firstnews}{\heading{Liam's Top Ten Linux Commands}{6pt}}
+ 
+ \begin{enumerate}[leftmargin=0.2cm]
+ 	\item \textbf{mupdf} \\
+ 	mupdf is a lightweight X11/GL PDF Viewing application. It allows for use of Vim keybindings to navigate PDF files. \\
+ 	Example: mupdf SHENZHEN\textunderscore IO\textunderscore Manual.pdf 
+	\item \textbf{grep} \\
+ 	grep allows you to select lines that match a pattern. Normally you'll pipe something to grep's stdin rather than have grep read directly from a file. \\ 
+ 	Example: cat /var/log/Xorg.0.log | grep EE
+ 	\item \textbf{scp}\\
+ 	scp allows you to securely copy files to and from remote locations.//
+ 	Example: scp loothelion@filer.csh.rit.edu:.html\textunderscore pages/thelinuxcommandline.pdf
+ 	\item \textbf{find}\\
+ 	find searches for files in a directory based on user defined patterns. \\
+ 	Example: find /users/u24/ram -type f -name *.torrent
+ 	\item \textbf{nmap}\\
+ 	nmap is a network exploration tool. \\
+ 	Example: nmap -PN hagrid.csh.rit.edu
+ 	\item \textbf{curl} \\
+ 	curl preforms an web request to "transfer a URL." \\
+ 	Example: curl http://icanhazip.com 
+ 	\item \textbf{cut}\\
+ 	cut removes sections from each line of files. Normally you'll pipe something to cut's stdin rather than run cut directly. \\
+ 	Example: history | cut -d' ' -f4 
+ 	\item \textbf{strace}\\
+ 	strace prints out the system calls and signals made by a program. \\
+ 	Example: strace echo "Test strace" 
+ 	\item \textbf{htop}\\
+ 	htop is an interactive process viewer. \\
+ 	Example: htop
+ 	\item \textbf{cacaview}\\
+ 	cacaview is an ASCII image browser.\\
+ 	Example: cacaview james-face.jpg\\
+ \end{enumerate}
+
+%-----------------------------------------------------------
+
+
+\end{minipage} % End the main body - first page mini page
+
+\centering\vspace{0.5cm}\includegraphics[width=0.78\linewidth]{imgs/decline.png}
+\end{document} 
